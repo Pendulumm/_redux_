@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-import { Button } from 'antd'
-import Count from './components/Count'
+import Count from './containers/Count'
+
+// 引入redux中的store
+// 而不是在容器组件中引入
+import store from './redux/store'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Count />
+        {/* 给容器组件传递store */}
+        <Count store={store} />
       </div>
-
     )
   }
 }
