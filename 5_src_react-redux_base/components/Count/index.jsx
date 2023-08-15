@@ -12,17 +12,22 @@ export default class Count extends Component {
     // 减法
     decrement = () => {
         const { value } = this.selectedNumber;
+        this.props.decrement(value * 1);
     }
     // 奇数再加
     incrementIfOdd = () => {
         const { value } = this.selectedNumber;
+        if (this.props.count % 2 != 0) {
+            this.props.increment(value * 1);
+        }
     }
     // 异步加
     incrementIfAsync = () => {
         const { value } = this.selectedNumber;
+        this.props.incrementAsync(value * 1, 500)
     }
     render() {
-        console.log('CountUI props:', this.props);
+        // console.log('CountUI props:', this.props);
         return (
             <div>
                 {/* getState() 拿到的是redux保存的状态，redux里是reducer专门负责初始化和加工状态 */}

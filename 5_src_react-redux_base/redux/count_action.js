@@ -16,7 +16,7 @@ export const createIncrementAsyncAction = (data, time) => {
     // store调用的该函数
     // each middleware will be given the `dispatch` and `getState` functions as named arguments.
     return (dispatch) => {
-        console.log(dispatch);
+        // console.log(dispatch);
         setTimeout(() => {
             // 通知redux加data
             dispatch(createIncrementAction(data));
