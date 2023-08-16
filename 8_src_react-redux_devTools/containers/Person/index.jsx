@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addPerson } from '../../redux/actions/person'
+import { createAddPersonAction } from '../../redux/actions/person'
 
 import { nanoid } from 'nanoid'
 
@@ -42,6 +42,6 @@ class Person extends Component {
 export default connect(
     state => ({ persons: state.persons, sum: state.sum }),  // 映射状态
     {   //映射操作状态的方法
-        addPerson
+        addPerson: createAddPersonAction
     }
 )(Person)

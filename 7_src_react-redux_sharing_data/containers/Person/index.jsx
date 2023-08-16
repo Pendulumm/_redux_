@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addPerson } from '../../redux/actions/person'
+import { createAddPersonAction } from '../../redux/actions/person'
 
 import { nanoid } from 'nanoid'
 
@@ -8,7 +8,7 @@ class Person extends Component {
 
     addPerson = () => {
         const name = this.nameNode.value;
-        const age = this.ageNode.value * 1;
+        const age = this.ageNode.value;
         const personObj = {
             id: nanoid(),
             name,
@@ -20,7 +20,7 @@ class Person extends Component {
     }
 
     render() {
-        console.log('PersontUI props:', this.props);
+        // console.log('PersontUI props:', this.props);
         return (
             <div>
                 <h2>我是Person组件,上方组件求和为{this.props.sum}</h2>
@@ -42,6 +42,6 @@ class Person extends Component {
 export default connect(
     state => ({ persons: state.persons, sum: state.sum }),  // 映射状态
     {   //映射操作状态的方法
-        addPerson
+        addPerson: createAddPersonAction
     }
 )(Person)
